@@ -22,8 +22,8 @@ public class LoginPageSteps {
         loginPage.loginFunction();
     }
 
-    @Then("User should see success message")
-    public void user_should_see_success_message() {
+    @Then("User should see login success message")
+    public void user_should_see_login_success_message() {
         loginPage = new LoginPage();
 
         loginPage.validateLoginMessage();
