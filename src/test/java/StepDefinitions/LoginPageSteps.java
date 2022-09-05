@@ -15,16 +15,18 @@ public class LoginPageSteps {
         loginPage.navigateToLogInPage();
     }
 
-    @When("User enter valid {string} and valid {string}")
-    public void user_enter_valid_and_valid(String email, String password) {
+    @When("User enter valid username and valid password")
+    public void user_enter_valid_and_valid() {
         loginPage = new LoginPage();
 
-        loginPage.loginFunction(email, password);
+        loginPage.loginFunction();
     }
 
     @Then("User should see success message")
     public void user_should_see_success_message() {
+        loginPage = new LoginPage();
 
+        loginPage.validateLoginMessage();
     }
 
 }

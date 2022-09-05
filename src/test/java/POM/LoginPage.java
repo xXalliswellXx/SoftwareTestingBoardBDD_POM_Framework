@@ -27,6 +27,9 @@ public class LoginPage extends BasePOM{
     @FindBy(css = "span[class='logged-in']")
     private WebElement logInMessage;
 
+    String email = "blah@test.com";
+    String password = "Test123";
+
     public void navigateToLogInPage() {
         signInLink.click();
 
@@ -35,7 +38,7 @@ public class LoginPage extends BasePOM{
         Assert.assertTrue(signInButton.isDisplayed());
     }
 
-    public void loginFunction(String email, String password) {
+    public void loginFunction() {
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
         waitUntilVisibleAndClickableThenClick(signInButton);
