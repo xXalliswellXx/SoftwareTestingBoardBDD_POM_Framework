@@ -45,7 +45,6 @@ public class LoginPage extends BasePOM{
     }
 
     public void validateLoginMessage() {
-        wait.until(ExpectedConditions.visibilityOf(logInMessage));
         Assert.assertTrue(logInMessage.isDisplayed());
     }
 
