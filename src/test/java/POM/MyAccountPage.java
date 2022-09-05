@@ -1,6 +1,6 @@
 package POM;
 
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,9 +21,6 @@ public class MyAccountPage extends BasePOM {
 
     @FindBy(xpath = "//span[text()='Manage Addresses']/..")
     private WebElement manageAddressesLink;
-
-    @FindBy(xpath = "//strong[text()='Default Addresses']")
-    private WebElement defaultAddressesText;
 
     @FindBy(css = "button[role='add-address']")
     private WebElement addAddressButton;
@@ -61,8 +58,10 @@ public class MyAccountPage extends BasePOM {
 
         waitUntilVisibleAndClickableThenClick(manageAddressesLink);
 
-        if (defaultAddressesText.isDisplayed())
+        try {
             waitUntilVisibleAndClickableThenClick(addAddressButton);
+        }
+        catch (TimeoutException | NoSuchElementException | ElementNotInteractableException ignored) {}
 
         wait.until(ExpectedConditions.visibilityOf(streetAddressInput));
         streetAddressInput.sendKeys(streetAddress);
