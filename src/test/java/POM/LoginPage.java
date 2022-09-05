@@ -28,7 +28,7 @@ public class LoginPage extends BasePOM{
     private WebElement logInMessage;
 
     String email = "blah@test.com";
-    String password = "Test123";
+    String password = "Test123.";
 
     public void navigateToLogInPage() {
         signInLink.click();
