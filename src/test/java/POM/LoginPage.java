@@ -45,6 +45,7 @@ public class LoginPage extends BasePOM{
     }
 
     public void validateLoginMessage() {
+        staleElementWait(logInMessage);
         Assert.assertTrue(logInMessage.isDisplayed());
     }
 
