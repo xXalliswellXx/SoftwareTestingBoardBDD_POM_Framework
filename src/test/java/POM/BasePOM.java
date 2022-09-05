@@ -1,6 +1,7 @@
 package POM;
 
 import Utils.Driver;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,6 +18,14 @@ public class BasePOM {
         wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
+    }
+
+    public void staleElementWait(WebElement element) {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(element));
+        } catch (StaleElementReferenceException ex) {
+            wait.until(ExpectedConditions.visibilityOf(element));
+        }
     }
 
 }
