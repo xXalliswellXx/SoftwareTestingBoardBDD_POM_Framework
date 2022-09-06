@@ -27,7 +27,8 @@ public class LoginPage extends BasePOM{
     @FindBy(css = "span[class='logged-in']")
     private WebElement logInMessage;
 
-    String email = "blah@test.com";
+    //String email = "blah@test.com";
+    String email = "testblah@test.com";
     String password = "Test123.";
 
     public void navigateToLogInPage() {
